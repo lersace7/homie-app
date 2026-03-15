@@ -21,7 +21,15 @@ public class WebConfig {
 
     @Bean
     public DataSource dataSource() {
-        return new DriverManagerDataSource();
+
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+
+        ds.setDriverClassName("org.h2.Driver");
+        ds.setUrl("jdbc:h2:mem:testdb");
+        ds.setUsername("sa");
+        ds.setPassword("");
+
+        return ds;
     }
 
     @Bean
