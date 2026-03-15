@@ -2,7 +2,9 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY . .
+COPY homie ./homie
+
+WORKDIR /app/homie
 
 RUN ./mvnw package -DskipTests
 
