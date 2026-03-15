@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h1>Homie Dashboard</h1>
+
+<h2>Create Circle</h2>
+
+<form action="/circle/create" method="post">
+    <input type="text" name="name" placeholder="Circle name">
+    <button type="submit">Create</button>
+</form>
+
+<h2>Your Circles</h2>
+
+<ul>
+    <li th:each="circle : ${circles}">
+        <a th:href="@{'/circle/' + ${circle.id}}" th:text="${circle.name}"></a>
+    </li>
+</ul>
+
+</body>
+</html>

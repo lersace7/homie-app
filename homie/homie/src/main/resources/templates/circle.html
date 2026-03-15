@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle</title>
+</head>
+<body>
+
+<h1>Circle</h1>
+
+<h2>Create Board</h2>
+
+<form th:action="@{'/board/create/' + ${circleId}}" method="post">
+
+    <input type="text" name="name" placeholder="Board name">
+
+    <button type="submit">Create Board</button>
+
+</form>
+
+<h2>Boards</h2>
+
+<ul>
+    <li th:each="board : ${boards}">
+        <a th:href="@{'/board/' + ${board.id}}" th:text="${board.name}"></a>
+    </li>
+</ul>
+
+</body>
+</html>
