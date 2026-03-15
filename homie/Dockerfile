@@ -10,4 +10,4 @@ RUN chmod +x mvnw
 
 RUN ./mvnw package -DskipTests
 
-CMD ["java","-jar","target/homie-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-jar","target/homie-0.0.1-SNAPSHOT.war"]
