@@ -11,25 +11,18 @@ import javax.sql.DataSource;
 @Configuration
 public class WebConfig {
 
-    @Bean
-    public InternalResourceViewResolver jspViewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/jsp/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }
 
     @Bean
     public DataSource dataSource() {
 
-        DriverManagerDataSource ds = new DriverManagerDataSource();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        ds.setDriverClassName("org.h2.Driver");
-        ds.setUrl("jdbc:h2:mem:testdb");
-        ds.setUsername("sa");
-        ds.setPassword("");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/homie");
+        dataSource.setUsername("root");
+        dataSource.setPassword("");
 
-        return ds;
+        return dataSource;
     }
 
     @Bean
